@@ -5,5 +5,11 @@ Rails.application.routes.draw do
   get 'helo' , to: 'helo#index'
   get 'hele/other'
   post 'helo' , to:'helo#index'
-  post 'helo/index' 
+  post 'helo/index'
+  
+  get 'dengonban',to:'dengonban#index'
+  post 'dengonban',to:'dengonban#index'
+  get 'dengonban/index'
+  post 'dengonban/index'
+
 end
