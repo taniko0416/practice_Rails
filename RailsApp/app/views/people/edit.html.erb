@@ -6,18 +6,25 @@
 
 
 <table>
-
+<%
+=begin%>
+ 編集するんだから元データを表示しないといけないじゃん！！しかし！！
+@personオブジェクトに保管されている値が、そのまま各text_filed に値として表示されるようになっている
+それをモデルがわでインスタンスに入れて渡せばOK
+これらをRailsがやってくれる 
+<%
+=end%>
 <%= form_for(@person,url:{controller:'people',action:'update',id:@person.id}) do |form| %>
-    <tr>
-        <th>Name</th>
-        <td><%= form.text_filed :name %></td>
-        <th></th>
-    </tr>
-    <% @data.each do |obj| %>
-    <tr>
-        <td><%= obj.id %></td>
-        <td><a href="/people/<%= obj.id %>"><%= obj.name %></a></td>
-        <td><a href="/people/edit/<%= obj.id %>">Edit</a></td>
+    <tr><th>Name</th>
+        <td><%= form.text_field :name %></td></tr>
+    <tr><th>Age</th>
+        <td><%= form.text_field :age %></td></tr>
+    <tr><th>Mail</th>
+        <td><%= form.text_field :mail %></td></tr>
+        </tr>
+        <tr><th></th>
+
+    <td><%= form.submit "送信" %></td>
     </tr>
     <% end %>
 </table>

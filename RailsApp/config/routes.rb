@@ -4,7 +4,11 @@ Rails.application.routes.draw do
   get 'people/index'
   get 'people', to:"people#index"
   get 'people/:id' , to:'people#show'
+  get 'people/edit/:id' , to: 'people#edit'
+  post 'people/edit/:id' , to: 'people#update'
 
+  # データの更新の通信はPATCHを使用する
+  patch 'people/edit/:id',to: 'people#update'
 
 
 

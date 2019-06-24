@@ -23,6 +23,20 @@ class PeopleController < ApplicationController
       redirect_to '/people'
   end
 
+  def edit
+    @msg = "edit data.[id = " + params[:id] + "]"
+    @person = Person.find(params[:id])
+  end
+
+  def update
+    # 送られてきたIDを元に、DBから更新するデータをモデルのオブジェクトとして取り出す
+    # オブジェクトの値を更新する、paramsを引数にするだけで全部やってくれる（変数を見て代入作業を行ってくれる）
+    # リダイレクトでトップページに戻る
+    obj = Person.find(params[:id])
+    obj.update(person_params)
+    redirect_to '/people'    
+  end
+
   # ここで上記のperson_paramsの引数を決定している
   private
   def person_params
