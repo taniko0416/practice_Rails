@@ -1,4 +1,13 @@
 Rails.application.routes.draw do
+  get 'people/add'
+  post 'people/add' , to: 'people#create'
+  get 'people/index'
+  get 'people', to:"people#index"
+  get 'people/:id' , to:'people#show'
+
+
+
+
   get 'dengonban/index'
   # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html
   get 'helo/index'
