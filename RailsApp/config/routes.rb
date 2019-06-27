@@ -1,4 +1,8 @@
 Rails.application.routes.draw do
+  get 'cards/index'
+  get 'cards/show'
+  get 'cards/add'
+  get 'cards/edit'
   get 'people/add'
   post 'people/add' , to: 'people#create'
   get 'people/index'
@@ -9,7 +13,8 @@ Rails.application.routes.draw do
 
   # データの更新の通信はPATCHを使用する
   patch 'people/edit/:id',to: 'people#update'
-
+  
+  get 'people/delete/:id',to: 'people#delete'
 
 
   get 'dengonban/index'

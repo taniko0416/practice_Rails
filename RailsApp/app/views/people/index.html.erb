@@ -1,20 +1,30 @@
 <h1>People#index</h1>
 <%# <p>Find me in app/views/people/index.html.erb</p> %>
-
 <p><%= @msg %></p> 
-<pre>
-    <table>
-        <tr>
-            <th>Id</th>
-            <th>Name</th>
-            <th></th>
-        </tr>
-        <% @data.each do |obj| %>
-        <tr>
-            <td><%= obj.id %></td>
-            <td><a href="/people/<%= obj.id %>"><%= obj.name %></a></td>
-            <td><a href="/people/edit/<%= obj.id %>">Edit</a></td>
-        </tr>
-        <% end %>
-    </table>
-</pre>
+<table>
+    <tr>
+        <th>Id</th>
+        <th>Name</th>
+        <th colspan="2"></th>
+    </tr>
+    <% @data.each do |obj| %>
+    <tr>
+        <td><%= obj.id %></td>
+        <td><a href="/people/<%= obj.id %>"><%= obj.name %></a></td>
+        <td><a href="/people/edit/<%= obj.id %>">Edit</a></td>
+        <td><a href="javascript:delData(<%= obj.id %>);">Delete</a></td>
+    </tr>
+    <% end %>
+</table>
+
+<script>
+
+function delData(num){
+    // ウェブページ上に確認ダイアログボックスを表示させるのに活躍するメソッド
+    if (confirm("このデータを削除しますか？")){
+        // 現在のドキュメントのURLを設定・参照する
+        document.location = "/people/delete/" + num;
+    }
+    return false;
+}   
+</script>
