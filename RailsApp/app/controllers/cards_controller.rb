@@ -15,9 +15,19 @@ class CardsController < ApplicationController
       goback
     else
       @card = Card.new
+    end
   end
 
   def edit
+    @card = Card.find(params[:id])
+    if request.patch? then
+      @card.update(card_params)
+      # gobackはリダイレクトでホーム画面に戻る仕様、このクラスのプライベートクラスとして定義されている
+      goback
+    end
+  end
+
+  def delete
     Card.find(params[:id]).destroy
     goback
   end

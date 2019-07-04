@@ -1,2 +1,39 @@
 <h1>Cards#add</h1>
 <p>Find me in app/views/cards/add.html.erb</p>
+
+<table>
+<%= form_for(@card,url:{controller:'cards',action:'add'}) do |form| %>
+
+<tr>
+<th>タイトル</th>
+<td><%= form.text_filed:titile,{size:40} %></td>
+</tr>
+
+<tr>
+<th>著者</th>
+<td><%= form.text_filed:author,{size:40} %></td>
+</tr>
+
+<tr>
+<th>価格</th>
+<td><%= form.text_number:price,{size:10} %></td>
+</tr>
+
+<tr>
+<th>出版社</th>
+<td><%= form.text_filed:publisher,{size:40} %></td>
+</tr>
+
+<tr>
+<th>コメント</th>
+<td><%= form.text_area:memo,{size:40} %></td>
+</tr>
+
+<tr>
+<th></th>
+<td><%= form.submit "保存" %></td>
+</tr>
+
+<% end %>
+</table>
+<p class="link"><a href="/cards">&lt;&lt;
